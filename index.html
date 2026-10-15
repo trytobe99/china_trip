@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#13252c">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Китай">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFA0lEQVR42u2dPY4TQRCF16WVCJBIyAgQCRkBMfnmHGMTQqI9AuEmZBxkA66y4iQElqzVejzu6emqrp/vhYDd1a+/et0zHpvD+89fbhBakmABAg4EHAg4EHAg4EDAgYADAQcCDgQcCAEHAg4EHAg4EHAg4EDAgYADAQcCDoSAAwEHAg4EHMhSt1gwS/9+fbr0Vx9/Pnuo8MDXIf0w4Y0S4PDIhBNKOHMEIGPIO5AcCbGYGCEkRyQyjCMEOCKRYcwHcIRcPxs+gCPqyhmMAhyBzwTaYwEHAo50sWEwInAEJkN7XOBAwIGAo9qeojo6cCDgQMBRcE/RqwE4EHAg4EDAgYADAUdQ3T89AgeqSAZwgAhwKDPh4duLGjUAB+EBHNAAHLNwmbuzKI0OHMQGcAANcEwkYNbOojcucMQ+eaiOCBycNoAjY3hojwUc42PDhg+DUYBjMBnHf6y9cjb8AUe89TPbuYBj/Dn09BKNVbQ80/AjtRb5MeR7A/bXySSHyuXr8M/0p9xhIzmsjyD8gnFTb/2++5EyNk5an6D/3z6/neu+cz4SXI7GO3P4vxU9pMLod9wlwRqgPHC8AsIhHwNLCk0/l7LIDRyLneSqvYYXEzc8JOuScAYKBkdZ64NOXHAQdufD0WJ94uWJODWuVoiN2XC0W094kBy+TCQ2psGB9UGtEEyE3WlwjHqYivAgOViqMnDstJ7wIDmm+UhsTIPDufVzywvBZYAzB/2dDY6xK5ryGQv/0PPZCrKFQ6MnUj7X6Tw8IiUHh4/wcHCRksauYGcOwiMwHAaLt2cIn2y5JZ6rFWQCh1kH9A3keUt68/YdycHhY0F/vj/45EOKrFYImLzxEfjMkeOh5WNs+ORDQvdl9M3lFRne+JC4JiYGyAkf4r99j2Rc4iNueKwT74EPCeRgBx9u0WnJwul8iOfYOHdwz/4ScZecy4eEc3Dxz/3/JkzE84f4jI2OhIiCQsfUZvER8j5Hi78+WeneFu35uH96lD0vnuhg++aSRpZ8HJ2UuL21wkey2DDm4+SeuIqNrfYFungZVao2Hy9XVqLbd/6q9E+L6fHxyjpxEht7Gst/fgyvUIOP82WVHN555kOptrF8LDa8TI+NUd755EO1qlF8XFpTSexdBe3nY6XbZdQbeSDDG2o29ezhY31BJZlxfviwrKSPj6utLlNiQ9W4mlvVVj5aVjPn91am8zGlgHY+Gvtcxr6dH+Mm8jFx6BY+2pdSEhvH/rKzycUyNuxXq8KI7XxsXUdJ71rNrDrno6PDxSY2KiS8tzm+5KNvEaWCa2Xvwx756G5v0Y4NJwujXYZb/vbcP5U6lukV4zyZussTvdhwaFnZ/aVv4lJtGdJ/2jewTtGIjawxGz2KtlZb9DfB2F/64UgcGwPrDEpYe9lCRxacaWPxMjA2wvnVXXCCHmiZghTvpMoPsV6duwyJjQoZm5Kn9bkIzXez+wu6WecuO2MjjVnsL4OTI5mhV6eTGKDFqUl3bKR0amVS6aPlfIKi1GTsLwnmLh2xUdC+mjf3+P9WrqNQrRlO8xViY32aNXeZ46xlT0uxleSe/uHh+S9moUUJZKBdcEAGcEAG2gIHZAAHZKAtcEAGEshAG+CADLThUhYBB7GBLsMBGWgZDshAy3BABlqGAzLQog4fvn7DBcSlLAIOBBwIOBBwIOBAwIGAAwEHAg6EgAMBBwIOBBzIXP8B7U0ukWhurHkAAAAASUVORK5CYII=">
+<title>Китай за 10 дней: Чунцин, Чэнду, горы Аватара</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --ink:#0e1a20;
+  --deep:#13252c;
+  --panel:#1a303a;
+  --line:#2d4752;
+  --mist:#dbe9e4;
+  --dim:#8ea9a8;
+  --jade:#7be0bf;
+  --lantern:#f5b04c;
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --cjk:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:#13252c}
+html,body{height:100%;margin:0}
+body{position:fixed;inset:0;width:100%;overscroll-behavior:none;-webkit-touch-callout:none}
+button,a{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.card p,.dayhead p,.tips li{-webkit-user-select:text;user-select:text}
+body{background:var(--ink);color:var(--mist);font-family:var(--sans);font-size:16px;line-height:1.5;overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--jade);outline-offset:2px}
+
+#app{height:100vh;height:-webkit-fill-available;display:grid;grid-template-rows:auto var(--maph,40vh) 1fr;transition:grid-template-rows .3s ease;--maph:40vh}
+#app.small{--maph:17vh}
+#app.big{--maph:62vh}
+@supports (height:100dvh){
+  #app{height:100dvh;--maph:40dvh}
+  #app.small{--maph:17dvh}
+  #app.big{--maph:62dvh}
+}
+.mapwrap{min-height:180px}
+.mapfail{position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:20px;color:var(--dim);z-index:400}
+
+/* header: route strip */
+header.top{padding:calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inset-right) + 12px) 8px calc(env(safe-area-inset-left) + 12px);background:var(--deep);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0 2px 8px}
+.brand h1{font-family:var(--serif);font-weight:600;font-size:19px;margin:0;letter-spacing:.01em}
+.brand button{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;min-height:36px;font-size:14px;color:var(--mist)}
+.strip{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.strip::-webkit-scrollbar{display:none}
+.grp{flex:none;display:flex;flex-direction:column;gap:3px}
+.grp .gl{font-size:11.5px;color:var(--dim);padding-left:3px;white-space:nowrap}
+.grp .chips{display:flex;gap:4px}
+.chip{border:1px solid var(--line);background:transparent;border-radius:10px;min-width:42px;height:42px;padding:0 10px;font-weight:600;font-size:14px;color:var(--mist)}
+.chip.all{padding:0 12px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--jade);border-color:var(--jade);color:#07241b}
+
+/* map */
+.mapwrap{position:relative;min-height:0}
+#map{position:absolute;inset:0;background:#0b1519}
+.leaflet-container{font-family:var(--sans);-webkit-tap-highlight-color:transparent}
+.leaflet-touch .leaflet-bar a{width:40px;height:40px;line-height:40px;font-size:20px}
+.leaflet-top.leaflet-right{margin-right:env(safe-area-inset-right)}
+.dimtiles{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.6)}
+.leaflet-control-attribution{background:rgba(14,26,32,.75)!important;color:var(--dim)!important;font-size:10px}
+.leaflet-control-attribution a{color:var(--dim)!important}
+.mapbtns{position:absolute;right:calc(env(safe-area-inset-right) + 10px);bottom:24px;z-index:500;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+.mbtn{background:rgba(14,26,32,.9);border:1px solid var(--line);border-radius:999px;padding:11px 18px;min-height:44px;font-size:15px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.mbtn.primary{background:var(--jade);color:#07241b;border-color:var(--jade);font-weight:600}
+.pin{width:30px;height:30px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);display:grid;place-items:center;border:2px solid #0e1a20;box-shadow:0 2px 8px rgba(0,0,0,.5);transition:transform .2s}
+.pin span{transform:rotate(45deg);font-weight:700;font-size:13px;color:#07241b}
+.pin.day{background:var(--jade)}
+.pin.eve{background:var(--lantern)}
+.pin.on{transform:rotate(-45deg) scale(1.3);box-shadow:0 0 0 4px rgba(255,255,255,.25),0 3px 12px rgba(0,0,0,.6)}
+.dot{width:14px;height:14px;border-radius:50%;border:2px solid #0e1a20}
+.me{width:16px;height:16px;border-radius:50%;background:#58a6ff;border:3px solid #fff;box-shadow:0 0 0 6px rgba(88,166,255,.3)}
+
+/* sheet */
+.sheet{background:linear-gradient(180deg,var(--deep),var(--ink) 220px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:16px calc(env(safe-area-inset-right) + 14px) calc(env(safe-area-inset-bottom) + 48px) calc(env(safe-area-inset-left) + 14px);border-top:1px solid var(--line)}
+.dayhead .city{font-size:13px;color:var(--jade);margin:0 0 2px}
+.dayhead h2{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.15;margin:0 0 8px}
+.dayhead p{margin:0 0 6px;color:var(--dim);max-width:62ch}
+.slot{display:flex;align-items:center;gap:8px;margin:20px 0 10px;font-family:var(--serif);font-size:17px}
+.slot svg{width:18px;height:18px;flex:none}
+.slot.day svg{color:var(--jade)}
+.slot.eve svg{color:var(--lantern)}
+.slot::after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:13px 14px 12px;margin-bottom:10px;border-left-width:4px;scroll-margin-top:8px}
+.card.day{border-left-color:var(--jade)}
+.card.eve{border-left-color:var(--lantern)}
+.card.on{background:#20404b}
+.ch{display:flex;gap:11px;align-items:flex-start;width:100%;background:none;border:0;padding:0;text-align:left}
+.num{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:13px;color:#07241b}
+.day .num{background:var(--jade)}
+.eve .num{background:var(--lantern)}
+.meta{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim);margin-bottom:1px}
+.meta b{color:var(--mist);font-variant-numeric:tabular-nums}
+.tag{border:1px solid var(--line);border-radius:6px;padding:0 7px;font-size:12px;color:var(--dim)}
+.ch h3{font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.2;margin:0}
+.card p{margin:9px 0 12px;color:#c3d6d0;max-width:62ch;font-size:16px}
+.cn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:9px 13px;min-height:44px;margin-bottom:10px;font-family:var(--cjk);font-size:16px}
+.cn small{font-family:var(--sans);font-size:12.5px;color:var(--dim)}
+.links{display:flex;gap:8px;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--mist);border:1px solid var(--line);border-radius:10px;padding:10px 15px;min-height:42px;display:inline-flex;align-items:center;font-size:15px;background:rgba(255,255,255,.03)}
+.links a:hover{border-color:var(--jade)}
+.links a.amap{border-color:#3d6b60}
+
+/* overview */
+.ov{display:flex;gap:12px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:9px}
+.ov .d{font-family:var(--serif);font-size:28px;line-height:1;width:34px;color:var(--jade);flex:none}
+.ov h3{font-family:var(--serif);font-size:18px;margin:0 0 2px}
+.ov .c{font-size:13px;color:var(--dim)}
+
+/* overlays */
+.ovl{position:fixed;inset:0;z-index:2000;display:none}
+.ovl.open{display:flex}
+.drv{background:#f4f1e8;color:#101010;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.drv .hint{font-size:15px;color:#555;margin-bottom:18px}
+.drv .big{font-family:var(--cjk);font-weight:700;font-size:clamp(44px,15vw,120px);line-height:1.15;word-break:keep-all}
+.drv .ru{margin-top:20px;font-size:18px;color:#333}
+.drv button{position:absolute;top:calc(env(safe-area-inset-top) + 14px);right:calc(env(safe-area-inset-right) + 14px);background:#101010;color:#fff;border:0;border-radius:999px;padding:12px 22px;min-height:44px;font-size:16px}
+.tips{background:rgba(5,12,15,.7);align-items:flex-end;justify-content:center}
+.tips .box{background:var(--deep);border:1px solid var(--line);border-radius:18px 18px 0 0;width:100%;max-width:560px;max-height:82vh;max-height:82dvh;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;overflow-y:auto;padding:18px 18px calc(env(safe-area-inset-bottom) + 22px)}
+.tips h2{font-family:var(--serif);font-size:22px;margin:0 0 10px}
+.tips ul{margin:0 0 14px;padding-left:18px}
+.tips li{margin-bottom:9px}
+.tips li b{color:var(--jade);font-weight:600}
+.tips .close{width:100%;background:var(--jade);color:#07241b;border:0;border-radius:12px;padding:14px;min-height:48px;font-size:16px;font-weight:600}
+#toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 24px);transform:translateX(-50%);background:#000c;color:#fff;border-radius:10px;padding:9px 15px;font-size:14px;z-index:3000;display:none;max-width:88vw;text-align:center}
+
+/* wide screens: list left, map right */
+@media (min-width:900px), (orientation:landscape) and (max-height:520px){
+  #app,#app.small,#app.big{grid-template-columns:minmax(320px,440px) 1fr;grid-template-rows:auto 1fr;height:100vh;height:-webkit-fill-available}
+  @supports (height:100dvh){#app,#app.small,#app.big{height:100dvh}}
+  header.top{grid-column:1;grid-row:1}
+  .sheet{grid-column:1;grid-row:2}
+  .mapwrap{grid-column:2;grid-row:1/3}
+  #sizeBtn{display:none}
+  .mapbtns{bottom:30px}
+}
+@media (prefers-reduced-motion:reduce){#app,.pin{transition:none}}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div class="brand">
+      <h1>Китай за десять дней</h1>
+      <button id="tipsBtn" type="button">Перед поездкой</button>
+    </div>
+    <nav class="strip" id="strip" aria-label="Дни поездки"></nav>
+  </header>
+
+  <div class="mapwrap">
+    <div id="map" role="application" aria-label="Карта"></div>
+    <div class="mapfail" id="mapfail">Карта не загрузилась. Проверьте интернет или отключите блокировщик. Список мест ниже работает.</div>
+    <div class="mapbtns">
+      <button class="mbtn" id="sizeBtn" type="button">Показать меньше</button>
+      <button class="mbtn" id="allBtn" type="button">Все точки</button>
+      <button class="mbtn primary" id="meBtn" type="button">Где я</button>
+    </div>
+  </div>
+
+  <main class="sheet" id="sheet" aria-live="polite"></main>
+</div>
+
+<div class="ovl drv" id="drv" role="dialog" aria-modal="true" aria-label="Показать водителю">
+  <button type="button" id="drvClose">Закрыть</button>
+  <div class="hint">Покажите водителю такси</div>
+  <div class="big" id="drvCn"></div>
+  <div class="ru" id="drvRu"></div>
+</div>
+
+<div class="ovl tips" id="tips" role="dialog" aria-modal="true" aria-label="Советы перед поездкой">
+  <div class="box">
+    <h2>Что сделать до вылета</h2>
+    <ul>
+      <li><b>Оплата.</b> Привяжите карту к Alipay или WeChat Pay: почти везде платят QR-кодом, наличные берут не везде.</li>
+      <li><b>Связь.</b> Купите eSIM заранее. Без VPN не работают Google, WhatsApp и Telegram.</li>
+      <li><b>Карты.</b> Google и Яндекс в Китае сдвигают точки на сотни метров. Для навигации надёжнее кнопка «Amap» в карточках.</li>
+      <li><b>Поезда.</b> Билеты на скоростные поезда покупайте в Trip.com или 12306. На вокзал нужен паспорт и запас на проверку в час.</li>
+      <li><b>Бронирование.</b> Заранее забронируйте базу панд, Саньсиндуй, музей Трёх ущелий и входной билет в парк Улиньюань. Нужен паспорт.</li>
+      <li><b>Такси.</b> Нажмите на иероглифы в карточке. Они откроются на весь экран, их можно показать водителю.</li>
+      <li><b>Острое.</b> В Чунцине и Чэнду просите «微辣» (вэй ла, слегка остро). В Хунани — «少辣» (шао ла, поменьше).</li>
+      <li><b>Как на iPhone.</b> Откройте файл в Safari, нажмите «Поделиться», затем «На экран “Домой”». Сайт откроется как приложение, без адресной строки. Кнопке «Где я» нужен адрес с https.</li>
+      <li><b>Точность.</b> Координаты на карте приблизительные. Перед выходом проверьте адрес в Amap.</li>
+    </ul>
+    <button class="close" type="button" id="tipsClose">Понятно</button>
+  </div>
+</div>
+<div id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+/* ---------- Данные ---------- */
+const CITIES = {
+  cq:{name:"Чунцин",color:"#7be0bf"},
+  cd:{name:"Чэнду",color:"#f5b04c"},
+  zj:{name:"Чжанцзяцзе",color:"#9bb8ff"}
+};
+
+const DAYS = [
+/* ===== ЧУНЦИН ===== */
+{city:"cq",title:"Центр и огни над рекой",
+ note:"Чунцин построен на холмах: закладывайте время на лестницы, эскалаторы и лифты. Самое красивое здесь начинается после заката.",
+ items:[
+ {t:"10:00",s:"day",tag:"Район",name:"Цзефанбэй",cn:"解放碑",ll:[29.5570,106.5770],
+  text:"Сердце города: пешеходный квартал вокруг Памятника освобождения. Небоскрёбы, торговые центры, уличная еда. Хорошая точка, чтобы освоиться."},
+ {t:"12:30",s:"day",tag:"Храм",name:"Храм Лохань",cn:"罗汉寺",ll:[29.5562,106.5795],
+  text:"Буддийский храм, спрятанный среди высоток. Внутри около 500 статуй архатов, во дворе чайная. Тишина в паре шагов от толпы."},
+ {t:"15:00",s:"day",tag:"Старый город",name:"Шибати",cn:"十八梯",ll:[29.5545,106.5665],
+  text:"Старые лестницы и террасы на склоне, превращённые в пешеходный квартал. Чайные, кафе, виды на реку. Хорошо для фото."},
+ {t:"18:00",s:"eve",tag:"Огни",name:"Хунъяндун",cn:"洪崖洞",ll:[29.5634,106.5742],
+  text:"Одиннадцать этажей, стилизованных под дома на сваях, над рекой Цзялин. После заката комплекс светится, как кадр из анимэ. Вход бесплатный, приходите к семи часам, пока не набежала толпа."},
+ {t:"19:30",s:"eve",tag:"Вид",name:"Мост Цяньсымэнь",cn:"千厮门大桥",ll:[29.5655,106.5762],
+  text:"С пешеходной части моста лучший вид на подсвеченный Хунъяндун и набережную. От комплекса идти минут пятнадцать."},
+ {t:"21:00",s:"eve",tag:"Круиз",name:"Круиз по двум рекам, пристань Чаотяньмэнь",cn:"两江夜游 朝天门码头",ll:[29.5718,106.5835],
+  text:"Час на воде у слияния Янцзы и Цзялин: мосты, небоскрёбы и подсветка. Билеты лучше купить онлайн заранее."}
+ ]},
+
+{city:"cq",title:"Метро сквозь дом и два берега",
+ note:"Второй день посвящён тому, что делает Чунцин непохожим на другие города: транспорт в домах, старые улочки и панорамы.",
+ items:[
+ {t:"09:30",s:"day",tag:"Метро",name:"Станция Лицзыба",cn:"李子坝轻轨站",ll:[29.5535,106.5315],
+  text:"Поезд линии 2 проходит прямо сквозь жилой дом. Смотровая площадка напротив бесплатная, поезда ходят каждые несколько минут."},
+ {t:"12:00",s:"day",tag:"Музей",name:"Музей Трёх ущелий",cn:"重庆中国三峡博物馆",ll:[29.5596,106.5505],
+  text:"Бесплатный музей на Народной площади про Янцзы, переселение и историю региона. Нужна запись онлайн по паспорту. Напротив здание Народного собрания, похожее на Храм Неба."},
+ {t:"15:00",s:"day",tag:"Старый город",name:"Цыцикоу",cn:"磁器口古镇",ll:[29.5806,106.4496],
+  text:"Тысячелетний «Маленький Чунцин»: узкие улицы, чайные, лавки. Попробуйте хрустящую мáхуа, жареную скрутку из теста. По выходным очень людно."},
+ {t:"18:00",s:"eve",tag:"Закат",name:"Парк Элин",cn:"鹅岭公园",ll:[29.5460,106.5350],
+  text:"Самая высокая точка полуострова Юйчжун. Закат над двумя реками, старые павильоны и тихие дорожки."},
+ {t:"19:30",s:"eve",tag:"Небоскрёб",name:"Раффлз-Сити, «Хрусталь»",cn:"重庆来福士 朝天门",ll:[29.5698,106.5855],
+  text:"Горизонтальный «Хрустальный коридор» между небоскрёбами, на высоте около 250 метров. Смотровая площадка выходит на слияние рек."},
+ {t:"21:00",s:"eve",tag:"Набережная",name:"Набережная Наньбинь",cn:"南滨路",ll:[29.5530,106.5815],
+  text:"Прогулка по южному берегу: ночной Юйчжун через воду, кафе и бары. Хороший финал дня с чаем или пивом."}
+ ]},
+
+{city:"cq",title:"Дацзу и огненный горшок",
+ note:"Однодневная поездка к буддийским скульптурам. Из Чунцина до Дацзу идёт скоростной поезд (около часа), дальше такси. Вернуться стоит до вечера.",
+ items:[
+ {t:"09:30",s:"day",tag:"ЮНЕСКО",name:"Скалы Баодиншань, Дацзу",cn:"大足石刻 宝顶山",ll:[29.7455,105.7075],
+  text:"Скульптуры XII века, высеченные прямо в скале: сцены ада, будды и знаменитая тысячерукая Гуаньинь. Приезжайте к открытию, пока нет экскурсионных групп."},
+ {t:"12:30",s:"day",tag:"ЮНЕСКО",name:"Скалы Бэйшань, Дацзу",cn:"大足石刻 北山",ll:[29.7150,105.7180],
+  text:"Более ранняя группа скульптур, IX–XIII века. Народу меньше, резьба тоньше. Хватит часа-полутора."},
+ {t:"19:00",s:"eve",tag:"Вид",name:"Смотровая «Одно дерево»",cn:"南山一棵树观景台",ll:[29.5445,106.6075],
+  text:"Лучшая ночная панорама города: полуостров с небоскрёбами и мостами в огнях. Поднимайтесь к сумеркам, у ограды собирается очередь за кадром."},
+ {t:"20:30",s:"eve",tag:"Еда",name:"Чунцинский хотпот",cn:"重庆火锅",ll:[29.5565,106.5760],
+  text:"Бульон с перцем и сычуаньским перцем, который «немеет» во рту. Выбирайте место, где ужинают местные. Для начала просите «微辣», слегка остро. Район Цзефанбэй дан как ориентир."}
+ ]},
+
+{city:"cq",title:"Граффити, канатка и прощальный вечер",
+ note:"Последний день в Чунцине. Вечером соберите вещи: утром поезд в Чэнду.",
+ items:[
+ {t:"10:00",s:"day",tag:"Искусство",name:"Улица граффити Хуанцзюэпин",cn:"黄桷坪涂鸦街",ll:[29.5330,106.5120],
+  text:"Рядом с Сычуаньской академией изящных искусств: целые дома, стены и даже танки покрыты росписью. Кафе и мастерские художников."},
+ {t:"13:00",s:"day",tag:"Канатка",name:"Канатная дорога через Янцзы",cn:"长江索道",ll:[29.5600,106.5790],
+  text:"Одна из последних городских канаток: около километра над рекой. Главный враг очередь, поэтому идите в будний день."},
+ {t:"15:30",s:"day",tag:"Старая улица",name:"Переулок Шаньчэн",cn:"山城巷",ll:[29.5545,106.5635],
+  text:"Восстановленные ступеньки и дворики на склоне: чайные, лавки, смотровые площадки. Спокойнее, чем Хунъяндун."},
+ {t:"18:00",s:"eve",tag:"Закат",name:"Площадь Чаотяньмэнь",cn:"朝天门广场",ll:[29.5715,106.5815],
+  text:"Стрелка, где буро-жёлтая Янцзы сливается с зелёной Цзялин. На закате вся набережная в красках. Площадь бесплатная."},
+ {t:"19:30",s:"eve",tag:"Прогулка",name:"Пешеходная улица Гуаньиньцяо",cn:"观音桥步行街",ll:[29.5790,106.5400],
+  text:"Квартал для молодёжи: уличная еда, кафе, фонтаны и огни. Подходит для неторопливого ужина."},
+ {t:"21:00",s:"eve",tag:"Еда",name:"Чунцинский гриль",cn:"重庆烧烤",ll:[29.5800,106.5380],
+  text:"Шашлычки на углях с острой приправой и холодное пиво. Заказывайте на глаз, ткнув в понравившиеся шпажки."}
+ ]},
+
+/* ===== ЧЭНДУ ===== */
+{city:"cd",title:"Панды и чайные",
+ note:"Утром скоростной поезд из Чунцина (около 1 ч 20 мин). Вещи оставьте в отеле или в камере хранения: панды лучше всего видны, пока бодрствуют.",
+ items:[
+ {t:"10:30",s:"day",tag:"Панды",name:"База гигантских панд",cn:"成都大熊猫繁育研究基地",ll:[30.7348,104.1457],
+  text:"Панды активны утром, после обеда спят. Билеты онлайн, на осмотр нужно три часа. Не пропустите питомник с детёнышами."},
+ {t:"14:30",s:"day",tag:"Монастырь",name:"Монастырь Вэньшу",cn:"文殊院",ll:[30.6730,104.0690],
+  text:"Действующий буддийский монастырь эпохи Цин. Дым благовоний, красные стены, во дворе вегетарианская чайная."},
+ {t:"16:30",s:"day",tag:"Чайная",name:"Чайная Хэминь в парке Жэньминь",cn:"人民公园鹤鸣茶社",ll:[30.6633,104.0560],
+  text:"Бамбуковые кресла, чай в чашках с крышками и разговоры на полдня. Можно заказать чистку ушей по-сычуаньски."},
+ {t:"18:30",s:"eve",tag:"Квартал",name:"Переулки Куанчжай",cn:"宽窄巷子",ll:[30.6700,104.0600],
+  text:"Три параллельных переулка со дворами эпохи Цин. Сувениры и закуски. Лучше всего вечером, когда зажигаются фонари."},
+ {t:"19:45",s:"eve",tag:"Еда",name:"Чэндуский хотпот",cn:"成都火锅",ll:[30.6600,104.0770],
+  text:"Бульон «два цвета»: острый красный и мягкий белый. Макайте тонкие ломтики мяса, овощи и тофу. Район Чуньси дан как ориентир, просите «微辣»."},
+ {t:"21:30",s:"eve",tag:"Шоу",name:"Сычуаньская опера",cn:"川剧变脸",ll:[30.6605,104.0560],
+  text:"Смена масок «бянь лянь» за долю секунды, огонь, акробатика. Чайные театры дают шоу около часа. Билеты заранее."}
+ ]},
+
+{city:"cd",title:"Плотина III века и даосская гора",
+ note:"Дальний выезд на день: скоростной поезд Чэнду, Дуцзянъянь (около 30–40 минут), потом короткая пересадка до Цинчэншань. Паспорт при себе.",
+ items:[
+ {t:"09:30",s:"day",tag:"ЮНЕСКО",name:"Ирригационная система Дуцзянъянь",cn:"都江堰",ll:[31.0020,103.6070],
+  text:"Оросительная система, построенная в III веке до н. э. и работающая до сих пор. «Рыбья пасть», подвесной мост Аньлань, туман над рекой Миньцзян."},
+ {t:"14:00",s:"day",tag:"Гора",name:"Гора Цинчэншань",cn:"青城山",ll:[30.9000,103.5700],
+  text:"Колыбель даосизма: каменные ступени, чайные павильоны, храмы в лесу. Есть канатная дорога. Обезьяны могут тянуться к вашей еде."},
+ {t:"19:00",s:"eve",tag:"Улица",name:"Цзиньли",cn:"锦里古街",ll:[30.6460,104.0485],
+  text:"Улица в стиле эпохи Цин рядом с храмом Уху. Красные фонари, уличная еда, ремёсла. После заката особенно красиво."},
+ {t:"20:30",s:"eve",tag:"Неон",name:"Улица Чуньси",cn:"春熙路",ll:[30.6570,104.0800],
+  text:"Главная торговая улица Чэнду и её неон. На здании IFS висит гигантская панда, будто лезет вверх."},
+ {t:"22:00",s:"eve",tag:"Набережная",name:"Мост Цзюянь",cn:"九眼桥",ll:[30.6360,104.0880],
+  text:"Река Цзиньцзян, мост в подсветке и бары вдоль набережной. Место, где Чэнду гуляет допоздна."}
+ ]},
+
+{city:"cd",title:"Бронзовые маски и поэт Ду Фу",
+ note:"Утро отдано музею за городом. Билеты в Саньсиндуй бронируйте заранее и берите паспорт. После обеда спокойный день в центре.",
+ items:[
+ {t:"09:30",s:"day",tag:"Музей",name:"Музей Саньсиндуй",cn:"三星堆博物馆",ll:[31.0010,104.2010],
+  text:"Бронзовые маски с выпученными глазами возрастом более трёх тысяч лет: загадочная цивилизация Шу. Путь: скоростной поезд до Гуанхань и такси, около полутора часов."},
+ {t:"14:30",s:"day",tag:"Сад",name:"Хижина Ду Фу",cn:"杜甫草堂",ll:[30.6600,104.0270],
+  text:"Дом танского поэта Ду Фу в бамбуковой роще. Пруды, мостики, тихие дорожки."},
+ {t:"16:30",s:"day",tag:"Храм",name:"Храм Уху",cn:"武侯祠",ll:[30.6430,104.0490],
+  text:"Мемориал Чжугэ Ляна и героев эпохи Троецарствия. Кипарисы, красные стены, статуи полководцев."},
+ {t:"18:30",s:"eve",tag:"Квартал",name:"Тайгули и храм Дацы",cn:"远洋太古里 大慈寺",ll:[30.6550,104.0835],
+  text:"Открытый квартал, где старинные дворики перемешаны с бутиками. В центре действующий храм Дацы."},
+ {t:"20:00",s:"eve",tag:"Площадь",name:"Площадь Тяньфу",cn:"天府广场",ll:[30.6572,104.0660],
+  text:"Главная площадь города, вечером светятся фасады вокруг. Хорошее место для неспешной прогулки."},
+ {t:"21:00",s:"eve",tag:"Еда",name:"Лапша дань-дань",cn:"担担面",ll:[30.6590,104.0710],
+  text:"Тарелка острой лапши с соусом из кунжута и перца: простой прощальный ужин в Чэнду. Ищите любую лапшичную в центре."}
+ ]},
+
+/* ===== ЧЖАНЦЗЯЦЗЕ ===== */
+{city:"zj",title:"Прилёт и озеро Баофэн",
+ note:"Утром перелёт Чэнду, Чжанцзяцзе (около 1 ч 40 мин, аэропорт Хэхуа). До Улиньюаня около 40 минут на такси. Оформите билет в парк заранее: вход по отпечатку пальца.",
+ items:[
+ {t:"13:30",s:"day",tag:"Озеро",name:"Озеро Баофэн",cn:"宝峰湖",ll:[29.3150,110.5900],
+  text:"Бирюзовое озеро в окружении скал. Лодки, водопад, лодочницы поют песни народа туцзя."},
+ {t:"16:00",s:"day",tag:"Пещера",name:"Пещера Хуанлун",cn:"黄龙洞",ll:[29.3790,110.6330],
+  text:"Одна из крупнейших пещер Китая: подземная река, огромные залы и сталактиты. На осмотр уйдёт 1,5–2 часа."},
+ {t:"18:30",s:"eve",tag:"Городок",name:"Улиньюань",cn:"武陵源",ll:[29.3470,110.5500],
+  text:"Туристический городок у входа в заповедник: гостиницы, ресторанчики и лавки. Здесь удобно ночевать перед горами."},
+ {t:"19:30",s:"eve",tag:"Еда",name:"Ужин по-туцзянски",cn:"土家菜",ll:[29.3465,110.5520],
+  text:"Копчёное мясо, острые овощи и бамбук. Кухня народа туцзя острая, при заказе просите «少辣»."},
+ {t:"21:00",s:"eve",tag:"Рынок",name:"Ночной рынок Улиньюань",cn:"武陵源夜市",ll:[29.3440,110.5510],
+  text:"Шашлычки, чай, сувениры. Короткая прогулка перед ранним подъёмом."}
+ ]},
+
+{city:"zj",title:"Горы Аватара",
+ note:"Главный день. Входите в парк к 8:00, пока нет автобусной толпы. Обувь с хорошей подошвой и дождевик: туман и дождь здесь обычное дело.",
+ items:[
+ {t:"08:30",s:"day",tag:"Аватар",name:"Юаньцзяцзе, гора Аллилуйя",cn:"袁家界 乾坤柱",ll:[29.3250,110.4350],
+  text:"Здесь, на Юаньцзяцзе, летающие горы из «Аватара». Столб Цянькунь в 2010 году официально переименовали в «Гору Аллилуйя Аватара». Маршрут по смотровым занимает около двух часов."},
+ {t:"12:30",s:"day",tag:"Лифт",name:"Лифт Байлун",cn:"百龙天梯",ll:[29.3180,110.4300],
+  text:"Стеклянный лифт на отвесной скале высотой 326 метров. Один из самых высоких наружных лифтов в мире, подъём занимает пару минут."},
+ {t:"15:00",s:"day",tag:"Вид",name:"Гора Тяньцзышань",cn:"天子山",ll:[29.3700,110.4600],
+  text:"Тысячи каменных столбов и «море облаков» с обзорных площадок. Есть канатная дорога вниз, если устали."},
+ {t:"19:00",s:"eve",tag:"Еда",name:"Ужин в Улиньюане",cn:"武陵源 餐厅",ll:[29.3460,110.5530],
+  text:"После долгого дня хорошо подойдут хунаньские блюда: острая курица, тушёное мясо, рис. Выбирайте место по очереди из местных."},
+ {t:"20:30",s:"eve",tag:"Река",name:"Река Сосиси",cn:"索溪",ll:[29.3400,110.5550],
+  text:"Тихая прогулка вдоль реки, чтобы размять ноги и отдохнуть от лестниц."}
+ ]},
+
+{city:"zj",title:"Тяньмэньшань: небесные врата",
+ note:"Гора находится рядом с самим городом Чжанцзяцзе, до неё 40–60 минут от Улиньюаня. Канатка открывается рано, лучше приехать к восьми.",
+ items:[
+ {t:"08:30",s:"day",tag:"Канатка",name:"Канатная дорога Тяньмэньшань",cn:"天门山索道",ll:[29.1100,110.4770],
+  text:"Одна из самых длинных пассажирских канатных дорог в мире, около 7,5 км. Подъём идёт над крышами города и горными склонами."},
+ {t:"11:00",s:"day",tag:"Тропа",name:"Стеклянная тропа",cn:"天门山玻璃栈道",ll:[29.0545,110.4850],
+  text:"Дорожка с прозрачным настилом вдоль отвесной скалы. Выдают бахилы. Если боитесь высоты, держитесь за стену."},
+ {t:"13:30",s:"day",tag:"Пещера",name:"Пещера Тяньмэнь и дорога 99 поворотов",cn:"天门洞 通天大道",ll:[29.0485,110.4885],
+  text:"Природная арка в скале высотой около 131 метра. К ней ведут 999 ступеней (есть эскалатор). Вниз спускается автобус по дороге с 99 поворотами."},
+ {t:"18:30",s:"eve",tag:"Набережная",name:"Набережная реки Лишуй",cn:"澧水",ll:[29.1180,110.4800],
+  text:"Неспешная прогулка по набережной города Чжанцзяцзе. Подсветка, фонтаны и лавочки после горных маршрутов."},
+ {t:"20:00",s:"eve",tag:"Еда",name:"Хунаньский ужин",cn:"湘菜",ll:[29.1170,110.4790],
+  text:"Хунаньская кухня считается одной из самых острых в Китае. Если не уверены, просите «少辣». Прощальный ужин поездки."}
+ ]}
+];
+
+/* ---------- Состояние ---------- */
+const $ = id => document.getElementById(id);
+let cur = -1, markers = [], line = null, allLayer = null, meMarker = null;
+
+/* ---------- Карта ---------- */
+let mapOK = typeof L !== "undefined";
+let map;
+if(mapOK){
+  map = L.map("map",{zoomControl:false}).setView([29.56,106.55],12);
+  L.control.zoom({position:"topright"}).addTo(map);
+  // Источники плиток: если один не отвечает, включается следующий
+  const SOURCES = [
+    {url:"https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",sub:"abcd",attr:"&copy; OpenStreetMap, &copy; CARTO",dim:false},
+    {url:"https://tile.openstreetmap.org/{z}/{x}/{y}.png",sub:"abc",attr:"&copy; OpenStreetMap",dim:true},
+    {url:"https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",sub:"abc",attr:"&copy; OpenStreetMap",dim:true}
+  ];
+  let si = -1, layer = null, errs = 0, okTiles = 0;
+  function useSource(n){
+    if(n >= SOURCES.length){ $("mapfail").style.display = "grid"; return; }
+    si = n; errs = 0; okTiles = 0;
+    if(layer) map.removeLayer(layer);
+    const S = SOURCES[n];
+    layer = L.tileLayer(S.url,{subdomains:S.sub,maxZoom:18,attribution:S.attr,className:S.dim?"dimtiles":""});
+    layer.on("tileload",()=>{ okTiles++; });
+    layer.on("tileerror",()=>{ errs++; if(errs>=4 && okTiles===0 && si===n) useSource(n+1); });
+    layer.addTo(map);
+    // если за 6 секунд ни одна плитка не пришла, пробуем следующий источник
+    setTimeout(()=>{ if(si===n && okTiles===0) useSource(n+1); },6000);
+  }
+  useSource(0);
+  // карта всегда подстраивается под свой размер
+  if(window.ResizeObserver){
+    let t; new ResizeObserver(()=>{ clearTimeout(t); t=setTimeout(()=>{ map.invalidateSize(); },60); }).observe($("map"));
+  }
+}else{
+  $("mapfail").style.display = "grid";
+}
+
+/* ---------- Кнопки дней ---------- */
+function buildStrip(){
+  const strip = $("strip"); strip.innerHTML = "";
+  const all = document.createElement("div"); all.className = "grp";
+  all.innerHTML = '<div class="gl">Маршрут</div><div class="chips"><button class="chip all" type="button" data-d="-1">Обзор</button></div>';
+  strip.appendChild(all);
+  let last = null, box = null, chips = null;
+  DAYS.forEach((d,i)=>{
+    if(d.city !== last){
+      box = document.createElement("div"); box.className = "grp";
+      const n = DAYS.filter(x=>x.city===d.city).length;
+      box.innerHTML = '<div class="gl">'+CITIES[d.city].name+', '+n+' '+(n===1?"день":(n<5?"дня":"дней"))+'</div><div class="chips"></div>';
+      strip.appendChild(box); chips = box.querySelector(".chips"); last = d.city;
+    }
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.dataset.d = i;
+    b.textContent = i+1; b.setAttribute("aria-label","День "+(i+1));
+    chips.appendChild(b);
+  });
+  strip.addEventListener("click",e=>{
+    const b = e.target.closest(".chip"); if(!b) return;
+    show(+b.dataset.d);
+  });
+}
+function markChip(){
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", +c.dataset.d===cur ? "true":"false"));
+  const on = document.querySelector('.chip[aria-pressed="true"]');
+  if(on) on.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+}
+
+/* ---------- Иконки ---------- */
+const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.5A8 8 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>';
+
+/* ---------- Показ дня ---------- */
+function clearMap(){
+  if(!mapOK) return;
+  markers.forEach(m=>map.removeLayer(m)); markers = [];
+  if(line){map.removeLayer(line); line = null}
+  if(allLayer){map.removeLayer(allLayer); allLayer = null}
+}
+function show(i){
+  cur = i; markChip(); clearMap();
+  const sheet = $("sheet"); sheet.scrollTop = 0;
+  if(i < 0){ showOverview(); return; }
+  const d = DAYS[i];
+  const pts = d.items.map(x=>x.ll);
+  if(mapOK) line = L.polyline(pts,{color:"#dbe9e4",weight:2,opacity:.45,dashArray:"4 8"}).addTo(map);
+  if(mapOK) d.items.forEach((it,k)=>{
+    const icon = L.divIcon({className:"",iconSize:[30,30],iconAnchor:[15,30],
+      html:'<div class="pin '+it.s+'" id="pin'+k+'"><span>'+(k+1)+'</span></div>'});
+    const m = L.marker(it.ll,{icon,title:it.name}).addTo(map);
+    m.on("click",()=>focus(k,true));
+    markers.push(m);
+  });
+  let html = '<div class="dayhead"><p class="city">День '+(i+1)+', '+CITIES[d.city].name+'</p><h2>'+d.title+'</h2><p>'+d.note+'</p></div>';
+  let slot = "";
+  d.items.forEach((it,k)=>{
+    if(it.s !== slot){
+      slot = it.s;
+      html += '<div class="slot '+slot+'">'+(slot==="day"?SUN+"Днём":MOON+"Вечером")+'</div>';
+    }
+    const [lat,lng] = it.ll;
+    html += '<article class="card '+it.s+'" id="card'+k+'">'+
+      '<button class="ch" type="button" data-k="'+k+'" aria-label="Показать на карте: '+it.name+'">'+
+        '<span class="num">'+(k+1)+'</span>'+
+        '<span><span class="meta"><b>'+it.t+'</b><span class="tag">'+it.tag+'</span></span><h3>'+it.name+'</h3></span>'+
+      '</button>'+
+      '<p>'+it.text+'</p>'+
+      '<button class="cn" type="button" data-k="'+k+'" data-cn="1">'+it.cn+'<small>Показать водителю</small></button>'+
+      '<div class="links">'+
+        '<a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+lat+','+lng+'">Маршрут Google</a>'+
+        '<a target="_blank" rel="noopener" href="https://yandex.ru/maps/?rtext=~'+lat+','+lng+'&rtt=auto">Яндекс</a>'+
+        '<a class="amap" target="_blank" rel="noopener" href="https://uri.amap.com/marker?position='+lng+','+lat+'&name='+encodeURIComponent(it.cn)+'&coordinate=wgs84&callnative=0">Amap</a>'+
+      '</div></article>';
+  });
+  sheet.innerHTML = html;
+  fitDay();
+}
+function fitDay(){
+  if(!mapOK) return;
+  if(cur < 0){ fitAll(); return; }
+  const pts = DAYS[cur].items.map(x=>x.ll);
+  map.invalidateSize();
+  map.fitBounds(L.latLngBounds(pts),{padding:[38,38],maxZoom:15,animate:true});
+}
+function fitAll(){
+  if(!mapOK) return;
+  map.invalidateSize();
+  map.fitBounds(L.latLngBounds(DAYS.flatMap(d=>d.items.map(x=>x.ll))),{padding:[30,30]});
+}
+function focus(k,scroll){
+  const it = DAYS[cur].items[k];
+  document.querySelectorAll(".card.on").forEach(c=>c.classList.remove("on"));
+  document.querySelectorAll(".pin.on").forEach(c=>c.classList.remove("on"));
+  const card = $("card"+k), pin = $("pin"+k);
+  if(card){ card.classList.add("on"); if(scroll) card.scrollIntoView({behavior:"smooth",block:"start"}); }
+  if(pin) pin.classList.add("on");
+  if(mapOK) map.flyTo(it.ll,15,{duration:.7});
+}
+
+/* ---------- Обзор ---------- */
+function showOverview(){
+  if(mapOK){ allLayer = L.layerGroup().addTo(map); }
+  if(mapOK) DAYS.forEach((d,i)=>d.items.forEach(it=>{
+    const m = L.marker(it.ll,{icon:L.divIcon({className:"",iconSize:[14,14],iconAnchor:[7,7],
+      html:'<div class="dot" style="background:'+CITIES[d.city].color+'"></div>'}),title:"День "+(i+1)+": "+it.name});
+    m.on("click",()=>show(i)); allLayer.addLayer(m);
+  }));
+  let html = '<div class="dayhead"><p class="city">Три города за десять дней</p><h2>Чунцин, Чэнду и горы Аватара</h2><p>Выберите день сверху или откройте любой из списка. В каждом дне три места днём и два-три вечером.</p></div><div style="height:14px"></div>';
+  DAYS.forEach((d,i)=>{
+    html += '<button class="ov" type="button" data-d="'+i+'"><span class="d">'+(i+1)+'</span><span><h3>'+d.title+'</h3><span class="c">'+CITIES[d.city].name+', '+d.items.length+' мест</span></span></button>';
+  });
+  $("sheet").innerHTML = html;
+  fitAll();
+}
+
+/* ---------- События ---------- */
+$("sheet").addEventListener("click",e=>{
+  const ov = e.target.closest(".ov"); if(ov){ show(+ov.dataset.d); return; }
+  const cn = e.target.closest("[data-cn]");
+  if(cn){
+    const it = DAYS[cur].items[+cn.dataset.k];
+    $("drvCn").textContent = it.cn; $("drvRu").textContent = it.name;
+    $("drv").classList.add("open"); return;
+  }
+  const ch = e.target.closest(".ch"); if(ch) focus(+ch.dataset.k,false);
+});
+$("drvClose").onclick = ()=>$("drv").classList.remove("open");
+$("drv").addEventListener("click",e=>{ if(e.target.id==="drv") $("drv").classList.remove("open") });
+$("tipsBtn").onclick = ()=>$("tips").classList.add("open");
+$("tipsClose").onclick = ()=>$("tips").classList.remove("open");
+$("tips").addEventListener("click",e=>{ if(e.target.id==="tips") $("tips").classList.remove("open") });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ $("drv").classList.remove("open"); $("tips").classList.remove("open") } });
+$("allBtn").onclick = ()=>fitDay();
+
+/* размер карты: меньше / больше */
+const sizes = ["", "small", "big"], labels = ["Показать меньше","Показать больше","Показать меньше"];
+let sizeState = 0;
+$("sizeBtn").onclick = ()=>{
+  const app = $("app");
+  // цикл: обычный -> меньше -> больше -> обычный
+  sizeState = (sizeState + 1) % 3;
+  app.className = sizes[sizeState];
+  $("sizeBtn").textContent = sizeState===0 ? "Показать меньше" : sizeState===1 ? "Показать больше" : "Обычный размер";
+  setTimeout(()=>{ if(mapOK){ map.invalidateSize(); fitDay(); } },320);
+};
+
+function toast(msg){
+  const t = $("toast"); t.textContent = msg; t.style.display = "block";
+  clearTimeout(toast.h); toast.h = setTimeout(()=>t.style.display = "none",3500);
+}
+$("meBtn").onclick = ()=>{
+  if(!mapOK){ toast("Карта не загружена."); return; }
+  if(!navigator.geolocation){ toast("Браузер не умеет определять местоположение."); return; }
+  toast("Определяю местоположение…");
+  navigator.geolocation.getCurrentPosition(p=>{
+    const ll = [p.coords.latitude,p.coords.longitude];
+    if(meMarker) map.removeLayer(meMarker);
+    meMarker = L.marker(ll,{icon:L.divIcon({className:"",iconSize:[16,16],iconAnchor:[8,8],html:'<div class="me"></div>'})}).addTo(map);
+    map.flyTo(ll,15); $("toast").style.display = "none";
+  },()=>toast("Нет доступа к геолокации. Разрешите её в настройках браузера."),{enableHighAccuracy:true,timeout:10000});
+};
+
+/* ---------- Старт ---------- */
+buildStrip();
+show(-1);
+if(mapOK){ window.addEventListener("resize",()=>map.invalidateSize()); setTimeout(()=>{ map.invalidateSize(); fitDay(); },300); }
+</script>
+</body>
+</html>
