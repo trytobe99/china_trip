@@ -46,7 +46,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--jade);outline-offse
   #app.big{--maph:62dvh}
 }
 .mapwrap{min-height:180px}
-.mapfail{position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:20px;color:var(--dim);z-index:400}
+.mapfail{position:absolute;left:10px;right:60px;top:10px;display:none;padding:9px 12px;border-radius:10px;background:rgba(14,26,32,.92);border:1px solid var(--lantern);color:var(--mist);font-size:13.5px;line-height:1.35;z-index:600;pointer-events:none}
 
 /* header: route strip */
 header.top{padding:calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inset-right) + 12px) 8px calc(env(safe-area-inset-left) + 12px);background:var(--deep);border-bottom:1px solid var(--line)}
@@ -64,7 +64,7 @@ header.top{padding:calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inse
 
 /* map */
 .mapwrap{position:relative;min-height:0}
-#map{position:absolute;inset:0;background:#0b1519}
+#map{position:absolute;inset:0;background-color:#0f2027;background-image:linear-gradient(#17303a 1px,transparent 1px),linear-gradient(90deg,#17303a 1px,transparent 1px);background-size:48px 48px}
 .leaflet-container{font-family:var(--sans);-webkit-tap-highlight-color:transparent}
 .leaflet-touch .leaflet-bar a{width:40px;height:40px;line-height:40px;font-size:20px}
 .leaflet-top.leaflet-right{margin-right:env(safe-area-inset-right)}
@@ -160,9 +160,10 @@ header.top{padding:calc(env(safe-area-inset-top) + 10px) calc(env(safe-area-inse
 
   <div class="mapwrap">
     <div id="map" role="application" aria-label="Карта"></div>
-    <div class="mapfail" id="mapfail">Карта не загрузилась. Проверьте интернет или отключите блокировщик. Список мест ниже работает.</div>
+    <div class="mapfail" id="mapfail">Подложка карты не загрузилась, но точки показаны. Нажмите «Слой», чтобы выбрать другую подложку, и проверьте интернет.</div>
     <div class="mapbtns">
       <button class="mbtn" id="sizeBtn" type="button">Показать меньше</button>
+      <button class="mbtn" id="layerBtn" type="button">Слой: Тёмная</button>
       <button class="mbtn" id="allBtn" type="button">Все точки</button>
       <button class="mbtn primary" id="meBtn" type="button">Где я</button>
     </div>
@@ -379,32 +380,36 @@ let map;
 if(mapOK){
   map = L.map("map",{zoomControl:false}).setView([29.56,106.55],12);
   L.control.zoom({position:"topright"}).addTo(map);
-  // Источники плиток: если один не отвечает, включается следующий
+  // Источники плиток без ключей. Кнопка «Слой» переключает их по кругу.
+  const ESRI="https://server.arcgisonline.com/ArcGIS/rest/services/";
   const SOURCES = [
-    {url:"https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",sub:"abcd",attr:"&copy; OpenStreetMap, &copy; CARTO",dim:false},
-    {url:"https://tile.openstreetmap.org/{z}/{x}/{y}.png",sub:"abc",attr:"&copy; OpenStreetMap",dim:true},
-    {url:"https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",sub:"abc",attr:"&copy; OpenStreetMap",dim:true}
+    {name:"Тёмная",url:ESRI+"World_Street_Map/MapServer/tile/{z}/{y}/{x}",nat:18,attr:"Tiles &copy; Esri",dim:true},
+    {name:"Светлая",url:ESRI+"World_Street_Map/MapServer/tile/{z}/{y}/{x}",nat:18,attr:"Tiles &copy; Esri",dim:false},
+    {name:"Спутник",url:ESRI+"World_Imagery/MapServer/tile/{z}/{y}/{x}",nat:17,attr:"Tiles &copy; Esri, Maxar, Earthstar Geographics",dim:false},
+    {name:"OSM",url:"https://tile.openstreetmap.org/{z}/{x}/{y}.png",nat:18,attr:"&copy; OpenStreetMap",dim:false}
   ];
-  let si = -1, layer = null, errs = 0, okTiles = 0;
-  function useSource(n){
-    if(n >= SOURCES.length){ $("mapfail").style.display = "grid"; return; }
+  let si = -1, layer = null, errs = 0, okTiles = 0, manual = false;
+  function useSource(n,byUser){
+    if(byUser) manual = true;
+    if(n >= SOURCES.length){ $("mapfail").style.display = "block"; return; }
     si = n; errs = 0; okTiles = 0;
     if(layer) map.removeLayer(layer);
     const S = SOURCES[n];
-    layer = L.tileLayer(S.url,{subdomains:S.sub,maxZoom:18,attribution:S.attr,className:S.dim?"dimtiles":""});
-    layer.on("tileload",()=>{ okTiles++; });
-    layer.on("tileerror",()=>{ errs++; if(errs>=4 && okTiles===0 && si===n) useSource(n+1); });
+    $("layerBtn").textContent = "Слой: " + S.name;
+    layer = L.tileLayer(S.url,{maxZoom:18,maxNativeZoom:S.nat,attribution:S.attr,className:S.dim?"dimtiles":"",referrerPolicy:"origin"});
+    layer.on("tileload",()=>{ okTiles++; $("mapfail").style.display = "none"; });
+    layer.on("tileerror",()=>{ errs++; if(!manual && errs>=4 && okTiles===0 && si===n) useSource(n+1); });
     layer.addTo(map);
-    // если за 6 секунд ни одна плитка не пришла, пробуем следующий источник
-    setTimeout(()=>{ if(si===n && okTiles===0) useSource(n+1); },6000);
+    setTimeout(()=>{ if(!manual && si===n && okTiles===0) useSource(n+1); },6000);
   }
+  $("layerBtn").onclick = ()=>useSource((si+1)%SOURCES.length,true);
   useSource(0);
   // карта всегда подстраивается под свой размер
   if(window.ResizeObserver){
     let t; new ResizeObserver(()=>{ clearTimeout(t); t=setTimeout(()=>{ map.invalidateSize(); },60); }).observe($("map"));
   }
 }else{
-  $("mapfail").style.display = "grid";
+  $("mapfail").style.display = "block";
 }
 
 /* ---------- Кнопки дней ---------- */
